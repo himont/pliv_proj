@@ -15,7 +15,7 @@ test_data = {'country_iso' : ISO_Country1,
 logger = logger_class.create_logger()
 suite = get_assignment_suite(test_data,logger)
 dateTimeStamp = time.strftime('%d-%b-%y_%X')
-buf = file("/Users/himanshusharma/TestReport/TestReport_Assignment"+"_"+dateTimeStamp+".html",
+buf = file("TestReports/TestReport_Assignment"+"_"+dateTimeStamp+".html",
                'wb')
 runner = HTMLTestRunner.HTMLTestRunner(
             stream=buf,
