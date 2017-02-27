@@ -11,5 +11,5 @@ def get_assignment_suite(test_data,logger=None):
     suite.addTest(search_number.test_search_number('test_02_search_number', test_data,logger))
     logger.info("Added test_02_search_number in the test suite")
     suite.addTest(assignment.test_assignment('test_01_assignment', test_data,logger))
-    logger.info("Added test_02_search_number in the test suite")
+    logger.info("Added test_01_assignment in the test suite")
     return suite
