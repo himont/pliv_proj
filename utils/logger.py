@@ -7,21 +7,24 @@ from settings.config import *
 class logger_class():
     @staticmethod
     def create_logger():
-
-
         logger = logging.getLogger()
-        logger.setLevel(logging.INFO)
+        log_values = { 'CRITICAL': 50,
+                                'ERROR': 40,
+                                'WARNING': 30,
+                                'INFO': 20,
+                                'DEBUG': 10,
+                                'NOTSET': 0,
+                                }
+        logger.setLevel(log_values[LOG_LEVEL])
 
         # create a file handler
         handler = logging.handlers.TimedRotatingFileHandler(
                                                             LOG_DIR+'automation.log',
-                                                            when='H', interval=1,
-                                                            backupCount=24,
+                                                            when='D', interval=1,
+                                                            backupCount=30,
                                                             encoding=None,
                                                             delay=False,
                                                             utc=False)
-        handler.setLevel(logging.INFO)
-
         # create a logging format
         formatter = logging.Formatter(
                                       '%(asctime)s - [%(filename)s:%(lineno)s - %(funcName)20s() ] - '
