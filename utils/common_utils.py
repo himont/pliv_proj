@@ -68,7 +68,7 @@ def unrent_num(number, log=None):
             log = logger_class.create_logger()
         payload = {'number' : number}
         conn = get_connection()
-        response_code= conn.unrent_number(payload)
+        (response_code, response_json)= conn.unrent_number(payload)
         log.info("For unrenting a number response_code is %s ",
                         response_code)
     except Exception as e:
@@ -104,6 +104,7 @@ def search_buy_2num(country_iso = 'US', num_type='Any', services='voice,sms',
     try:
         if not log:
             log = logger_class.create_logger()
+        conn = get_connection()
         (response_code, number_object_list) = search_number(country_iso, num_type,
                                     services, pattern, limit, offset, log)
 
@@ -112,16 +113,16 @@ def search_buy_2num(country_iso = 'US', num_type='Any', services='voice,sms',
         buy_payload_1 = {'number' : number_object_list[1]['number'],
                                         }
         log.info("Two selected numbers are %s and %s ",
-                        response_json['objects'] [0]['number'],
-                        response_json['objects'] [1]['number'])
+                        number_object_list[0]['number'],
+                        number_object_list[1]['number'])
         (buying_response_code_0, buying_response_json_0) = conn.buy_phone_number(buy_payload_0)
         (buying_response_code_1, buying_response_json_1) = conn.buy_phone_number(buy_payload_1)
         log.info("For buying 2 numbers response_code are %s and %s",
                         buying_response_code_0, buying_response_code_1)
         log.info("For buying 2 numbers response_json are %s and %s",
                         buying_response_json_0, buying_response_json_1)
-        src_num = response_json['objects'] [0]['number']
-        dest_num = response_json['objects'] [1]['number']
+        src_num = number_object_list[0]['number']
+        dest_num = number_object_list[1]['number']
         return (src_num, dest_num)
     except Exception as e:
         log.error("Exception occured while searching and buying 2 numbers \n"+str(e))
