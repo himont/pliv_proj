@@ -5,7 +5,7 @@ https://docs.google.com/document/d/1iaQl6Q4v97HxiQ2FnE6-T0vM-zrsgPJ4xsVOATyfcR4/
 Planned it in such a way that many more cases of any api can be added
 
 # Steps to setup:
-- git clone https://github.com/himont/pliv_proj.github.com
+- git clone https://github.com/himont/pliv_proj.git
 - cd pliv_proj
 - git clone https://github.com/tungwaiyip/HTMLTestRunner.git
 - create virtual environment, activate it and do 'pip install -r requirements.txt'
