@@ -5,13 +5,13 @@ https://docs.google.com/document/d/1iaQl6Q4v97HxiQ2FnE6-T0vM-zrsgPJ4xsVOATyfcR4/
 Planned it in such a way that many more cases of any api can be added
 
 ### Steps to setup:
-> git clone https://github.com/himont/pliv_proj.git
-> cd pliv_proj
-> git clone https://github.com/tungwaiyip/HTMLTestRunner.git
-> touch HTMLTestRunner/__init__.py
-> create virtual environment, activate it and do 'pip install -r requirements.txt'
-> sudo mkdir /var/log/api_automation
-> sudo chmod -R 777 /var/log/api_automation
+* git clone https://github.com/himont/pliv_proj.git
+* cd pliv_proj
+* git clone https://github.com/tungwaiyip/HTMLTestRunner.git
+* touch HTMLTestRunner/_ _init_ _.py (to make HTMLRunner a module which can be imported)
+* create virtual environment, activate it and do 'pip install -r requirements.txt'
+* sudo mkdir /var/log/api_automation
+* sudo chmod -R 777 /var/log/api_automation
 
 ### To execute:
 For now created a sample runner which will execute assignment along with couple of other test cases. Need to execute following command to start execution.
